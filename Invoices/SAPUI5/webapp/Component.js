@@ -33,13 +33,15 @@ sap.ui.define([
                 //set Model json al component
                 this.setModel(Models.createRecipient());
 
-                //set i18n model on the view
-                var i18nModel = new ResourceModel({ bundleName : "logaligroup.SAPUI5.i18n.i18n"});
-                this.setModel(i18nModel, "i18n");
+                //set i18n model on the view - se comenta, se inicializa en el manifest.json
+                //var i18nModel = new ResourceModel({ bundleName : "logaligroup.SAPUI5.i18n.i18n"});
+                //this.setModel(i18nModel, "i18n");
 
                 //getRootControl devuelve instancia del controlador de donde se invoque este atributo (helloDialog)
                 this._helloDialog = new HelloDialog(this.getRootControl());
 
+                //Create the views based on the url/hash
+                this.getRouter().initialize();
             },
 
             exit : function () {
